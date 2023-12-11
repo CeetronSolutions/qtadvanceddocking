@@ -387,3 +387,5 @@ FodyWeavers.xsd
 /Settings.ini
 .vscode/settings.json
 /.settings
+/out
+CMakePresets.json
