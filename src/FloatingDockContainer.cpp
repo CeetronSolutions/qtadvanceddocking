@@ -701,6 +701,11 @@ CFloatingDockContainer::CFloatingDockContainer(CDockManager *DockManager) :
         {
             native_window = false;
         }
+        QString WaylandDisplay = qgetenv("WAYLAND_DISPLAY").toLower();
+        if (WaylandDisplay != "")
+        {
+            native_window = false;
+        }
     }
 
 	if (native_window)
@@ -712,7 +717,7 @@ CFloatingDockContainer::CFloatingDockContainer(CDockManager *DockManager) :
 	{
 		d->TitleBar = new CFloatingWidgetTitleBar(this);
 		setTitleBarWidget(d->TitleBar);
-		setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::FramelessWindowHint);
+        setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::BypassWindowManagerHint);
 		d->TitleBar->enableCloseButton(isClosable());
 		connect(d->TitleBar, SIGNAL(closeRequested()), SLOT(close()));
 		connect(d->TitleBar, &CFloatingWidgetTitleBar::maximizeRequested,
