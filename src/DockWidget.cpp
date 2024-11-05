@@ -679,16 +679,8 @@ QAction* CDockWidget::toggleViewAction() const
 //============================================================================
 void CDockWidget::setToggleViewActionMode(eToggleViewActionMode Mode)
 {
-	if (ActionModeToggle == Mode)
-	{
-		d->ToggleViewAction->setCheckable(true);
-		d->ToggleViewAction->setIcon(QIcon());
-	}
-	else
-	{
-		d->ToggleViewAction->setCheckable(false);
-		d->ToggleViewAction->setIcon(d->TabWidget->icon());
-	}
+	d->ToggleViewAction->setCheckable(ActionModeToggle == Mode);
+ 	d->ToggleViewAction->setIcon(d->TabWidget->icon());
 }
 
 
@@ -910,11 +902,8 @@ void CDockWidget::setIcon(const QIcon& Icon)
 	{
 		d->SideTabWidget->setIcon(Icon);
 	}
-
-	if (!d->ToggleViewAction->isCheckable())
-	{
-		d->ToggleViewAction->setIcon(Icon);
-	}
+	
+	d->ToggleViewAction->setIcon(Icon);
 }
 
 
