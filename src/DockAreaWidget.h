@@ -38,6 +38,7 @@
 
 QT_FORWARD_DECLARE_CLASS(QXmlStreamWriter)
 QT_FORWARD_DECLARE_CLASS(QAbstractButton)
+QT_FORWARD_DECLARE_CLASS(QMenu)
 
 namespace ads
 {
@@ -198,7 +199,7 @@ public:
 	/**
 	 * Virtual Destructor
 	 */
-	virtual ~CDockAreaWidget();
+	~CDockAreaWidget() override;
 
 	/**
 	 * Returns the dock manager object this dock area belongs to

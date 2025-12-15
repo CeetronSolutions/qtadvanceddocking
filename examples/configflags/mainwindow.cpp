@@ -6,7 +6,6 @@
 #include <QToolBar>
 
 #include "DockAreaWidget.h"
-#include "DockAreaTitleBar.h"
 
 
 using namespace ads;
@@ -36,7 +35,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
 	l1->setWordWrap(true);
 	l1->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 	l1->setText("Docking widget 1");
-	ads::CDockWidget *dockWidget1 = new ads::CDockWidget("Dock 1");
+    ads::CDockWidget *dockWidget1 = DockManager->createDockWidget("Dock 1");
 	dockWidget1->setWidget(l1);
 	DockManager->addDockWidget(ads::LeftDockWidgetArea, dockWidget1);
 
@@ -44,7 +43,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
 	l2->setWordWrap(true);
 	l2->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 	l2->setText("Docking widget 2");
-	ads::CDockWidget *dockWidget2 = new ads::CDockWidget("Dock 2");
+    ads::CDockWidget *dockWidget2 = DockManager->createDockWidget("Dock 2");
 	dockWidget2->setWidget(l2);
 	DockManager->addDockWidget(ads::RightDockWidgetArea, dockWidget2);
 

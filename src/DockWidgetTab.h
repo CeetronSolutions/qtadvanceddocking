@@ -35,6 +35,8 @@
 
 #include "ads_globals.h"
 
+QT_FORWARD_DECLARE_CLASS(QMenu)
+
 namespace ads
 {
 class CDockWidget;
@@ -183,6 +185,20 @@ public:
 	 * Use this function to determine if the tab is currently being dragged
 	 */
 	eDragState dragState() const;
+
+    /**
+     * Fills the provided menu with standard entries. If a nullptr is passed, a
+     * new menu is created and filled with standard entries.
+     * This function is called from the actual version of contextMenuEvent, but
+     * can be called from any code. Caller is responsible of deleting the created
+     * object.
+     *
+     * @param menu The QMenu to fill with standard entries. If nullptr, a new
+     * QMenu will be created.
+     * @return The filled QMenu, either the provided one or a newly created one if
+     * nullptr was passed.
+     */
+    virtual QMenu *buildContextMenu(QMenu *);
 
 public Q_SLOTS:
 	virtual void setVisible(bool visible) override;
