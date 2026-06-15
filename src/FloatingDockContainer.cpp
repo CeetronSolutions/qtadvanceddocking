@@ -680,7 +680,7 @@ CFloatingDockContainer::CFloatingDockContainer(CDockManager *DockManager) :
 	{
 		d->TitleBar = new CFloatingWidgetTitleBar(this);
 		setTitleBarWidget(d->TitleBar);
-        setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::BypassWindowManagerHint);
+        setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::FramelessWindowHint);
 		d->TitleBar->enableCloseButton(isClosable());
 		connect(d->TitleBar, SIGNAL(closeRequested()), SLOT(close()));
 		connect(d->TitleBar, &CFloatingWidgetTitleBar::maximizeRequested,
