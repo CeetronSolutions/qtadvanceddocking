@@ -50,10 +50,10 @@ endif()
 # ---------------------------------------------------------------------------
 
 # Build QtADS as a static library instead of a shared library.
-option(BUILD_STATIC "Build the static library" OFF)
+option(BUILD_STATIC "Build the static library" ON)
 
 # Build the example applications and demo.
-option(BUILD_EXAMPLES "Build the examples" ON)
+option(BUILD_EXAMPLES "Build the examples" OFF)
 
 # ---------------------------------------------------------------------------
 # Platform directory
