@@ -799,7 +799,7 @@ public Q_SLOTS:
 	/**
 	 * Opens the perspective with the given name.
 	 */
-	void openPerspective(const QString& PerspectiveName);
+	bool openPerspective(const QString& PerspectiveName);
 
 	/**
 	 * Request a focus change to the given dock widget.
